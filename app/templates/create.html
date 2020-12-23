@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+</head>
+<body>
+    <form>
+        {% csrf_token %}
+        <button type="submit" formaction="/" formmethod="get">Fetch</button>
+        <button type="submit" formaction="/create" formmethod="get">Add</button>
+        <button type="submit" formaction="/edit" formmethod="get">Update</button>
+        <button type="submit" formaction="/delete" formmethod="get">Delete</button>
+    </form>
+    <h1>Enter details</h1><br>
+    <form method="POST" action = "/create">
+        {% csrf_token %}
+        S_Id : {{form.sid}}<br>
+        Name : {{form.name}}<br>
+        Phone Number : {{form.phone_number}}<br>
+        Email : {{form.email}}<br>
+        Class : {{form.standard}}<br>
+
+        <input type="submit">
+    </form>
+</body>
+</html>
