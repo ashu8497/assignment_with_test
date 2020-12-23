@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+</head>
+<body>
+    
+    <form>
+        {% csrf_token %}
+        <button type="submit" formaction="/" formmethod="get">Fetch</button>
+        <button type="submit" formaction="/create" formmethod="get">Add</button>
+        <button type="submit" formaction="/edit" formmethod="get">Update</button>
+        <button type="submit" formaction="/delete" formmethod="get">Delete</button>
+    </form>
+    <br><br>
+   <h1>DELETE DATA</h1>
+   <form method="post" action="delete">
+    {% csrf_token %}
+       Id : <input type="text" name = 'sid'><br><br>
+       <input type="submit">
+   </form>
+</body>
+</html>

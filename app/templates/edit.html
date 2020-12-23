@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+</head>
+<body>
+    <form>
+        {% csrf_token %}
+        <button type="submit" formaction="/" formmethod="get">Fetch</button>
+        <button type="submit" formaction="/create" formmethod="get">Add</button>
+        <button type="submit" formaction="/edit" formmethod="get">Update</button>
+        <button type="submit" formaction="/delete" formmethod="get">Delete</button>
+    </form>
+    <h1>Update Details</h1><br>
+    <form method="POST" action="/update/{{student.sid}}">
+        {% csrf_token %}
+       S_Id :  <input type="text" name = 'sid' value = {{student.sid}}><br>
+       Name :  <input type="text" name = 'name' value = {{student.name}}><br>
+       Phone Number :  <input type="text" name = 'phone_number' value = {{student.phone_number}}><br>
+       Class :  <input type="text" name = 'standard' value = {{student.standard}}><br>
+       Email :  <input type="text" name = 'email' value = {{student.email}}><br>
+
+       <input type="submit">
+    </form>
+</body>
+</html>

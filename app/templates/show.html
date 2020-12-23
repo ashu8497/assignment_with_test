@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        table, th, td {
+          border: 2px solid black;
+          border-collapse: collapse;
+        }
+        </style>
+</head>
+<body>
+    <form>
+        {% csrf_token %}
+        <button type="submit" formaction="/" formmethod="get">Fetch</button>
+        <button type="submit" formaction="/create" formmethod="get">Add</button>
+        <button type="submit" formaction="/edit" formmethod="get">Update</button>
+        <button type="submit" formaction="/delete" formmethod="get">Delete</button>
+    </form>
+    <br><br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>E-MAIL</th>
+            <th>PHONE NUMBER</th>
+            <th>CLASS</th>
+        </tr>
+        {% for student in student %}
+            <tr>
+                <td>{{student.sid}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.phone_number}}</td>
+                <td>{{student.standard}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
